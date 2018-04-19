@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width,inital-scale=1">
+    <title>Methods Option方法选项</title>
+</head>
+<body>
+<h1>Methods Option方法选项</h1>
+<hr>
+<div id="app">
+{{a}}
+    <p>
+        <button @click="add('iy')">add</button>
+    </p>
+</div>
+<button onclick="app.add(4)">add</button>
+
+</body>
+<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+
+<script>
+ var app=new Vue({
+  el:'#app',
+data:{
+   a:1
+},
+  methods:{
+   add:function (str,event) {
+    if(str != ''){
+     this.a+=str
+    }else{
+     this.a++
+    }
+   }
+  }
+ })
+</script>
+
+
+</html>

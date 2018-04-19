@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width,inital-scale=1">
+    <title>Extends Option  扩展选项</title>
+</head>
+<body>
+<h1>Extends Option  扩展选项</h1>
+<hr>
+<div id="app">
+    {{num}}
+    <p><button @click="add">add</button></p>
+</div>
+
+</body>
+<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+
+<script>
+var exobj={
+ updated:function () {
+  console.log("扩展update")
+ }
+}
+
+ var app=new Vue({
+  el:'#app',
+data:{num:1},
+methods:{
+   add:function () {
+    console.log('原生')
+    this.num++;
+   }
+},
+  updated:function () {
+   console.log("原生拓展")
+  },
+  extends:exobj
+ })
+</script>
+
+
+</html>

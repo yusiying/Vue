@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width-device-width,inital-scale=1">
+	<title>实例事件$on&$once&$off</title>
+
+</head>
+<body>
+	<h1>实例事件$on&$once&$off</h1>
+	<hr>
+	<div id="app">
+		{{num}}
+		<p><button @click="add">add</button></p>
+	</div>
+	<button onclick="off()">reduce</button>
+</body>
+<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+<script>
+	var app = new Vue({
+	 el:"#app",
+	 data:{
+	  num:1
+	 },
+	 methods:{
+	  add:function () {
+	   this.num++;
+      }
+	 }
+	});
+	app.$on("reduce",function () {
+	 console.log("执行减法")
+	 this.num--;
+    })
+	function off() {
+	 app.$off("reduce")
+    }
+</script>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width-device-width,inital-scale=1">
+	<title>v-model 绑定数组</title>
+</head>
+<body>
+	<h1>v-model</h1>
+	<hr>
+	<div id="app">
+		<p v-text="message"></p>
+		<br>
+		<h2>文本框</h2>
+		<p>
+			<input type="text" v-model="message">
+		</p>
+		<p>
+			<input type="text" v-model.lazy="message">
+		</p>
+		<p>
+			<input type="text" v-model.number="message">
+		</p>
+		<p>
+			<input type="text" v-model.trim="message">
+		</p>
+		<hr>
+		<h2>文本域</h2>
+		<textarea v-model="message" cols="30" rows="10"></textarea>
+		<hr>
+		<h2>多选框绑定数据</h2>
+		<input type="checkbox" id="isT" v-model="isT">
+		<label for="isT">
+			<span v-text="isT">"isT"</span>
+		</label>
+		<hr>
+		<h2>多选框绑定数组</h2>
+		<p>
+			<input type="checkbox" id="O" value="O" v-model="webs">
+			<label for="O">
+				<span>"O"</span>
+			</label>
+
+			<input type="checkbox" id="T" value="T" v-model="webs">
+			<label for="T">
+				<span>"T"</span>
+			</label>
+
+			<input type="checkbox" id="R" value="R"  v-model="webs">
+			<label for="R">
+				<span>"R"</span>
+			</label>
+		</p>
+		<p v-text="webs"></p>
+		<hr>
+		<h2>单选框绑定</h2>
+		<P>
+			<input type="radio" id="one" value="男" v-model="sex">
+			<label for="one">男</label>
+			<input type="radio" id="two" value="女" v-model="sex">
+			<label for="one">女</label>
+			<p v-text="sex"></p>
+		</P>
+
+	</div>
+
+</body>
+<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+			message:"fw",
+			isT:true,
+            webs:[],
+			sex:'男'
+        },
+		methods:{
+
+		}
+    })
+</script>
+</html>

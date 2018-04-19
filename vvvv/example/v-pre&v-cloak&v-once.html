@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width-device-width,inital-scale=1">
+	<title>v-pre&v-cloak&v-once</title>
+</head>
+<body>
+	<h1>v-pre&v-cloak&v-once</h1>
+	<hr>
+	<div id="app">
+		<div v-pre>
+			<span v-text="message"></span>
+		</div>
+		<div v-cloak>
+			<span v-text="message"></span>
+		</div>
+		<div v-once>
+			<span v-text="message"></span>
+		</div>
+		<div>
+			<input type="text" v-model="message">
+		</div>
+	</div>
+
+</body>
+<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'v-pre'
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width,inital-scale=1">
+    <title>propsData Option  全局扩展的数据传递</title>
+</head>
+<body>
+<h1>propsData Option  全局扩展的数据传递</h1>
+<hr>
+<header>
+
+</header>
+</body>
+<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+
+<script>
+ var  header_a = Vue.extend({
+  template:`<p>{{message}}</p>`,
+  data:function(){
+   return {
+    message:'Hello,I am Header'
+   }
+  }
+ });
+ new header_a().$mount('header');
+
+</script>
+
+
+</html>

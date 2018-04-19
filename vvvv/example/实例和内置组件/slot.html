@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width-device-width,inital-scale=1">
+	<title>内置组件 -slot</title>
+
+</head>
+<body>
+	<h1>内置组件 -slot</h1>
+	<hr>
+	<div id="app">
+		<bokes>
+			<span slot="bokeUrl">{{boo.bok}}</span>
+			<span slot="bokeName">{{boo.name}}</span>
+		</bokes>
+	</div>
+<template id="temp">
+	<div>
+		<p>dress: <slot name="bokeUrl"></slot></p>
+		<p>name: <slot name="bokeName"></slot></p>
+	</div>
+</template>
+</body>
+<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+<script>
+	var bokes = {
+	 template:"#temp"
+	}
+ var app = new Vue({
+  el:"#app",
+  data:{
+   boo:{
+    bok:'http://www.baidu.com',
+    name:"ni"
+   }
+  },
+  components:{
+   "bokes":bokes
+  }
+ })
+</script>
+</html>

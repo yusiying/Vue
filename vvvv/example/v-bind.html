@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width-device-width,inital-scale=1">
+	<title>v-bind</title>
+</head>
+<body>
+	<h1>v-bind</h1>
+	<hr>
+	<div id="app">
+		<h2 v-text="msessage"></h2>
+		<img :src="imgSrc"
+			 alt=""
+		width="200px">
+		<a :href="hrefSrc" target="_blank">sa</a>
+		<hr>
+		<div :class="className">1绑定样式class</div>
+		<div :class="{classA:isOk}">样式绑定判断</div>
+		<div :class="[classA,classB]">样式绑定判断</div>
+		<div :class="isOk?classA:classB">3远判断</div>
+		<hr>
+		<div>
+			<h2>变换颜色的判断</h2>
+			<input type="checkbox" id="isOk" v-model="isOk">
+			<label for="isOk">
+				<span v-text="isOk"></span>
+			</label>
+		</div>
+
+
+
+	</div>
+
+</body>
+<style>
+	.classA{
+		color: #FF0000;
+	}
+	.classB{
+		font-size: 25px;
+	}
+</style>
+<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'BINDE',
+			imgSrc:'http://jspang.com/wp-content/uploads/2018/01/VUE-timeline.jpg',
+			hrefSrc:'http://jspang.com/2017/02/23/vue2_01/',
+            className:'classA',
+			isOk:true,
+			classA:'classA',
+			classB:'classB'
+        }
+    });
+
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width,inital-scale=1">
+    <title>Template 制作模版</title>
+</head>
+<body>
+<h1>Template 制作模版</h1>
+<hr>
+<div id="app">
+    {{message}}
+
+</div>
+<templte id="dd2">
+    <h2>选项2 </h2>
+</templte>
+<templte id="dd3">
+    <h2>选项3 </h2>
+</templte>
+</body>
+<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="x-template" id="add4">
+    <h2 style="color:red">我是script标签模板</h2>
+</script>
+<script>
+ var app = new Vue({
+     el:'#app',
+     data:{
+         message:'12'
+     },
+     template:'#add4'
+ })
+</script>
+
+</html>

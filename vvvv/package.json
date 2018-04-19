@@ -1,0 +1,21 @@
+{
+  "name": "vvvv",
+  "version": "1.0.0",
+  "description": "Vue Dome",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "jquery.js": "0.0.2-security"
+  },
+  "devDependencies": {
+    "expose-loader": "^0.7.5"
+  }
+}

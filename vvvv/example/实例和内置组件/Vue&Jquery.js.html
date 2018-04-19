@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width-device-width,inital-scale=1">
+	<title>实例入门-实例属性</title>
+
+</head>
+<body>
+	<h1>实例入门-实例属性</h1>
+	<hr>
+	<div id="app">
+    {{mess}}
+	</div>
+
+</body>
+<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            mess:"hekk"
+        },
+     mounted:function () {
+	  $('#app').html('jquery')
+     },
+	 methods:{
+         add:function () {
+		  console.log(11)
+         }
+	 }
+    })
+	app.add()
+</script>
+</html>

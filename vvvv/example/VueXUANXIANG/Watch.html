@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width,inital-scale=1">
+    <title>Watch 选项 监控数据</title>
+</head>
+<body>
+<h1>Watch 选项 监控数据</h1>
+<hr>
+<div id="app">
+    <p>温度：{{wendu}}</p>
+    <p>穿越：{{chuanyi}}</p>
+    <p>
+        <button @click="shenggao">+</button>
+        <button @click="jiangdi">-</button>
+    </p>
+</div>
+
+</body>
+<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+
+<script>
+    var charr=['T恤短袖','夹克长裙','棉衣羽绒服']
+    
+    var app=new Vue({
+  el:'#app',
+data:{
+   wendu:11,
+ chuanyi:charr[0]
+},
+  methods:{
+   shenggao:function () {
+    this.wendu+=5;
+   },
+   jiangdi:function () {
+    this.wendu-=5;
+   }
+  },
+  watch:{
+   wendu:function (newVal,oldVal) {
+    if(newVal>=26){
+     this.chuanyi = charr[0]
+    }else if(newVal<=26&&newVal>0){
+     this.chuanyi = charr[1]
+    }else {
+     this.chuanyi = charr[2]
+    }
+   }
+  }
+ })
+    
+    app.$watch('wendu',function (newVal,oldVal) {
+     if(newVal>=26){
+      this.chuanyi = charr[0]
+     }else if(newVal<=26&&newVal>0){
+      this.chuanyi = charr[1]
+     }else {
+      this.chuanyi = charr[2]
+     }
+    })
+</script>
+
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width-device-width,inital-scale=1">
+	<title>v-on</title>
+</head>
+<body>
+	<h1>v-on</h1>
+	<hr>
+	<div id="app">
+		本场：{{fen}}
+		<p>
+			<button v-on:click="jiafen">+</button>
+			<button @click="jianfen">-</button>
+			<input type="text" v-on:keyup.enter="onEnter" v-model="fen2">
+		</p>
+	</div>
+
+</body>
+<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            fen:0,
+            fen2:1
+        },
+		methods:{
+            jiafen:function () {
+				this.fen++
+            },
+            jianfen:function () {
+				this.fen--
+            },
+            onEnter:function () {
+				this.fen = this.fen+parseInt(this.fen2)
+            }
+		}
+    })
+</script>
+</html>

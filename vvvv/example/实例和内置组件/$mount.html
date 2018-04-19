@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width-device-width,inital-scale=1">
+	<title>实例方法</title>
+
+</head>
+<body>
+	<h1>实例方法</h1>
+	<hr>
+	<div id="app"></div>
+	<p><button onclick="destroy()">卸载</button></p>
+	<p><button onclick="relaod()">刷新</button></p>
+</body>
+<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+<script>
+	var jii = Vue.extend({
+	 template:'<p>{{message}}</p>',
+	 data:function () {
+	  return{
+       message:'1234567'
+	  }
+     },
+	 mounted:function () {
+	  console.log("创建")
+     },
+	 destroyed:function () {
+	  console.log("销毁")
+     },
+     updated:function () {
+      console.log("被更新")
+     }
+	})
+	var vm = new jii().$mount("#app")
+	function destroy() {
+	 vm.$destroy();
+    }
+    function relaod() {
+     vm.$forceUpdate()
+    }
+</script>
+</html>

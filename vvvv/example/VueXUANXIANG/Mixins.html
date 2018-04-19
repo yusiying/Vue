@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width,inital-scale=1">
+    <title>Mixins 混入选项操作</title>
+</head>
+<body>
+<h1>Mixins 混入选项操作</h1>
+<hr>
+<div id="app">
+    <p>num:{{ num }}</p>
+    <P><button @click="add">增加数量</button></P>
+</div>
+
+</body>
+<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+
+<script>
+ var addLog={
+  updated:function(){
+   console.log("数据放生变化,变化成"+this.num+".");
+  }
+ }
+
+ Vue.mixin({
+  updated:function(){
+   console.log('我是全局被混入的');
+  }
+ })
+
+ var app=new Vue({
+  el:'#app',
+  data:{
+   num:1
+  },
+  methods:{
+   add:function(){
+    this.num++;
+   }
+  },
+  mixins:[addLog]//混入
+ })
+</script>
+
+
+</html>

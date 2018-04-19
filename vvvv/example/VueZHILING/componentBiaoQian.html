@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width,inital-scale=1">
+    <title>Component 标签</title>
+</head>
+<body>
+<h1>Component 标签</h1>
+<hr>
+<div id="app">
+    <my-component></my-component>
+</div>
+<template id="componentA">
+    <div>{{comA}}</div>
+</template>
+<!--<div id="componentB">-->
+    <!--<div>componentB</div>-->
+<!--</div>-->
+<!--<div id="componentC">-->
+    <!--<div>componentC</div>-->
+<!--</div>-->
+</body>
+<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+<script>
+    Vue.component('my-component',{
+        template: '<componentA></componentA>',
+        components:{
+            'componentA':{
+                template:'#componentA',
+                data:function () {
+                    return{
+                        comA:"This is a componenta!"
+                    }
+                }
+            },
+
+        }
+    })
+
+    new Vue({
+        el: '#app'
+    })
+</script>
+</html>
